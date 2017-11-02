@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class BusyFlightsController {
 
 	@ApiOperation(value = "Search busy Flights")
     @RequestMapping(path="/search", method = RequestMethod.POST)
-	private List<BusyFlightsResponse> searchBusyFlights(@RequestBody BusyFlightsRequest busyFlightsRequest) {
+	private List<BusyFlightsResponse> searchBusyFlights(@Valid @RequestBody BusyFlightsRequest busyFlightsRequest) {
     	return service.searchFlight(busyFlightsRequest);
 	}
 }
